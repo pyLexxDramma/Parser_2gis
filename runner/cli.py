@@ -36,7 +36,6 @@ class CLIRunner(AbstractRunner):
 
     def _find_target_urls(self) -> None:
         if self._company_name or self._website:
-            logger.info(f"Searching for company cards: Name='{self._company_name}', Website='{self._website}'")
             try:
                 finder_response_patterns = ['*.2gis.ru/api/*']
                 finder = CompanyFinder(
@@ -52,8 +51,6 @@ class CLIRunner(AbstractRunner):
                 if not self._target_urls:
                     logger.warning("No company cards found matching the search criteria.")
 
-                logger.info(f"Found {len(self._target_urls)} URLs for parsing.")
-
             except Exception as e:
                 logger.error(f"Error during company search: {e}", exc_info=True)
                 self._target_urls = []
@@ -61,34 +58,47 @@ class CLIRunner(AbstractRunner):
             self._target_urls = self._urls
 
     def start(self):
-        self._find_target_urls()
+        if not self._target_urls:
+            self._find_target_urls()
 
         if not self._target_urls:
-            logger.warning("No URLs to parse. Exiting.")
+            logger.warning("No URLs available for parsing. Exiting.")
             return
 
         logger.info(f"Starting parsing for {len(self._target_urls)} URLs.")
 
         try:
-            with get_writer(self._output_path, self._format, self._config.writer) as writer:
+            if self._output_path and self._format:
+                writer = get_writer(self._output_path, self._format, self._config.writer)
+            else:
+                writer = None
+
+            with writer:
                 for url in self._target_urls:
-                    logger.info(f'Parsing URL: {url}')
-                    with get_parser(url,
-                                    chrome_options=self._config.chrome,
-                                    parser_options=self._config.parser) as parser:
-                        try:
+                    try:
+                        with get_parser(url,
+                                        chrome_options=self._config.chrome,
+                                        parser_options=self._config.parser) as parser:
                             parser.parse(writer)
-                        except Exception as parse_error:
-                            logger.error(f"Error parsing {url}: {parse_error}", exc_info=True)
-                        finally:
-                            logger.info(f'Finished parsing URL: {url}')
+
+                    except pychrome.RuntimeException as e:
+                        logger.error(f"Chrome Runtime Error during parsing of {url}: {e}", exc_info=True)
+                        continue
+                    except ChromeException as e:
+                        logger.error(f"Chrome interaction error during parsing of {url}: {e}", exc_info=True)
+                        continue
+                    except Exception as parse_error:
+                        logger.error(f"Error parsing {url}: {parse_error}", exc_info=True)
+                        continue
+                    finally:
+                        logger.info(f'Finished parsing URL: {url}')
         except (KeyboardInterrupt, ChromeUserAbortException):
             logger.error('Parser operation interrupted by user.')
         except Exception as e:
             if isinstance(e, ChromeRuntimeException) and str(e) == 'Tab has been stopped':
-                logger.error('Browser tab was closed unexpectedly.')
+                logger.error('Browser tab was closed unexpectedly during initialization or parsing.')
             else:
-                logger.error('An error occurred during parser operation.', exc_info=True)
+                logger.error('An unexpected error occurred during parser operation.', exc_info=True)
         finally:
             logger.info('Parsing process finished.')
 

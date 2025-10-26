@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7aca2b6-f8c2-493e-9f87-009a9b0b8ad6" name="Changes" comment="Добавлена модель ChromeOptions для настройки браузера">
-      <change afterPath="$PROJECT_DIR$/chrome/remote.py" afterDir="false" />
+    <list default="true" id="d7aca2b6-f8c2-493e-9f87-009a9b0b8ad6" name="Changes" comment="рефакторинг: Полная реализация ChromeRemote с полным интерфейсом CDP и управлением контекстом">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finder/company_finder.py" beforeDir="false" afterPath="$PROJECT_DIR$/finder/company_finder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runner/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/runner/cli.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +76,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1761467218529</updated>
-      <workItem from="1761467219693" duration="10503000" />
+      <workItem from="1761467219693" duration="12412000" />
     </task>
     <task id="LOCAL-00001" summary="Адаптация CLI-приложения и runner для режима поиска компаний, добавлен каркас CompanyFinder">
       <option name="closed" value="true" />
@@ -101,7 +102,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761474895141</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="рефакторинг: Полная реализация ChromeRemote с полным интерфейсом CDP и управлением контекстом">
+      <option name="closed" value="true" />
+      <created>1761479069836</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1761479069836</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,6 +130,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Адаптация CLI-приложения и runner для режима поиска компаний, добавлен каркас CompanyFinder" />
     <MESSAGE value="Добавлена модель ChromeOptions для настройки браузера" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлена модель ChromeOptions для настройки браузера" />
+    <MESSAGE value="рефакторинг: Полная реализация ChromeRemote с полным интерфейсом CDP и управлением контекстом" />
+    <option name="LAST_COMMIT_MESSAGE" value="рефакторинг: Полная реализация ChromeRemote с полным интерфейсом CDP и управлением контекстом" />
   </component>
 </project>
