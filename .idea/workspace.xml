@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7aca2b6-f8c2-493e-9f87-009a9b0b8ad6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Parser_2gis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Parser_2gis.iml" afterDir="false" />
+    <list default="true" id="d7aca2b6-f8c2-493e-9f87-009a9b0b8ad6" name="Changes" comment="Адаптация CLI-приложения и runner для режима поиска компаний, добавлен каркас CompanyFinder">
+      <change afterPath="$PROJECT_DIR$/chrome/options.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/cli/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/company_finder.py" beforeDir="false" afterPath="$PROJECT_DIR$/finder/company_finder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runner/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/runner/cli.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,11 +75,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1761467218529</updated>
-      <workItem from="1761467219693" duration="5709000" />
+      <workItem from="1761467219693" duration="6868000" />
     </task>
+    <task id="LOCAL-00001" summary="Адаптация CLI-приложения и runner для режима поиска компаний, добавлен каркас CompanyFinder">
+      <option name="closed" value="true" />
+      <created>1761473847760</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1761473847760</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Адаптация CLI-приложения и runner для режима поиска компаний, добавлен каркас CompanyFinder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Адаптация CLI-приложения и runner для режима поиска компаний, добавлен каркас CompanyFinder" />
   </component>
 </project>
