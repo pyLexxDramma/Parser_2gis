@@ -5,42 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7aca2b6-f8c2-493e-9f87-009a9b0b8ad6" name="Changes" comment="Доработка ChromeRemote, расширение CompanyFinder с помощью wait_for_selector и усовершенствованного поиска, адаптация CLIRunner для интеграции поиска компаний">
-      <change afterPath="$PROJECT_DIR$/parser_2gis/runner/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parser_2gis/runner/gui.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parser_2gis/runner/runner.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parser_2gis/version.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parser_2gis/writer/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_chrome_remote.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_company_finder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/parser_2gis/chrome/browser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/parser_2gis/chrome/dom.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/parser_2gis/chrome/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/parser_2gis/chrome/patches.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_chrome_launch.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chrome/options.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/chrome/options.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chrome/remote.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/chrome/remote.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/cli/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/exceptions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/chrome/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/company_finder.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/finder/company_finder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/finder/exceptions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/options.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/finder/options.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finder/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/finder/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/cli/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/gui/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/logger/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/firm.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/parser/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/options.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/parser/exceptions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/parser/factory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paths.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/parser/firm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runner/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/finder/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runner/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/runner/cli.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runner/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/parser/options.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runner/runner.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/parser/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/version.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/paths.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +26,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
