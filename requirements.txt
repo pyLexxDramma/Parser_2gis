@@ -1,0 +1,4 @@
+pychrome
+requests
+psutil
+pydantic

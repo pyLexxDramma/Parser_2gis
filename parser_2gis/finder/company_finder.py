@@ -4,10 +4,10 @@ import re
 import time
 from typing import TYPE_CHECKING, List, Optional
 
-from ..chrome.remote import ChromeRemote
-from ..chrome.options import ChromeOptions
-from ..logger import logger
-from ..exceptions import ChromeException
+from parser_2gis.chrome.remote import ChromeRemote
+from parser_2gis.chrome.options import ChromeOptions
+from parser_2gis.logger import logger
+from parser_2gis.exceptions import ChromeException
 
 if TYPE_CHECKING:
     pass

@@ -1,14 +1,15 @@
 import argparse
-from typing import Any, Optional
+from typing import Any
 
 import pydantic
 
-from .common import GUI_ENABLED, report_from_validation_error, unwrap_dot_dict
-from .config import Configuration
-from .version import version
-from .cli import app
-from .gui import gui_app
-from .logger import logger
+from parser_2gis.common import GUI_ENABLED, report_from_validation_error, unwrap_dot_dict
+from parser_2gis.config import Configuration
+from parser_2gis.version import version
+from parser_2gis.cli.app import cli_app
+from parser_2gis.gui import gui_app
+from parser_2gis.logger import logger
+
 
 
 class ArgumentHelpFormatter(argparse.HelpFormatter):

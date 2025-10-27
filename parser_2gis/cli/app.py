@@ -1,12 +1,12 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional, Any
+from typing import TYPE_CHECKING, Optional
 
 from ..logger import setup_cli_logger, logger
-from ..runner import CLIRunner
+from parser_2gis.runner import CLIRunner
 
 if TYPE_CHECKING:
-    from ..config import Configuration
+    from parser_2gis.config import Configuration
 
 def cli_app(
     urls: Optional[list[str]],

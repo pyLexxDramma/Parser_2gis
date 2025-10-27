@@ -6,7 +6,7 @@ from typing import Optional
 import psutil
 from pydantic import BaseModel, PositiveInt
 
-from ..common import floor_to_hundreds
+from parser_2gis.common import floor_to_hundreds
 
 
 def default_memory_limit() -> int:

@@ -2,17 +2,17 @@ from __future__ import annotations
 
 from typing import Optional, List, Any
 
-from ..chrome.exceptions import ChromeRuntimeException, ChromeUserAbortException
-from ..chrome.remote import ChromeRemote  # Импортируем ChromeRemote, если он нужен напрямую
-from ..exceptions import ChromeException  # Импортируем ChromeException
-from ..finder.company_finder import CompanyFinder
-from ..logger import logger, setup_cli_logger
-from ..parser import get_parser
-from ..writer import get_writer
-from .runner import AbstractRunner
+from parser_2gis.chrome.exceptions import ChromeRuntimeException, ChromeUserAbortException
+from parser_2gis.chrome.remote import ChromeRemote
+from parser_2gis.exceptions import ChromeException
+from parser_2gis.finder.company_finder import CompanyFinder
+from parser_2gis.logger import logger
+from parser_2gis.parser import get_parser
+from parser_2gis.writer import get_writer
+from parser_2gis.runner.runner import AbstractRunner
 
 if TYPE_CHECKING:
-    from ..config import Configuration
+    from parser_2gis.config import Configuration
 
 
 class CLIRunner(AbstractRunner):

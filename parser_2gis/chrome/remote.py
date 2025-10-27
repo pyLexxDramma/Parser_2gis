@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import base64
 import queue
-import re
 import threading
 import time
 from typing import TYPE_CHECKING, Any, Callable, Dict, Optional, List
@@ -12,12 +11,13 @@ import requests
 from requests.exceptions import RequestException
 from websocket import WebSocketException
 
-from ..common import wait_until_finished, floor_to_hundreds
-from .browser import ChromeBrowser
-from .dom import DOMNode
-from .exceptions import ChromeException, ChromeRuntimeException
-from .options import ChromeOptions
-from .patches import patch_all
+from parser_2gis.common import wait_until_finished, floor_to_hundreds
+from parser_2gis.chrome.browser import ChromeBrowser
+from parser_2gis.chrome.dom import DOMNode
+from parser_2gis.chrome.exceptions import ChromeException, ChromeRuntimeException
+from parser_2gis.chrome.options import ChromeOptions
+from parser_2gis.chrome.patches import patch_all
+from parser_2gis.logger import logger
 
 if TYPE_CHECKING:
     Request = Dict[str, Any]
