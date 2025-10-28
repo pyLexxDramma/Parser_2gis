@@ -1,5 +1,6 @@
 import asyncio
 import pathlib
+import logging
 from typing import Any, Dict, List, Optional
 
 from backend.core.config import Settings
@@ -7,6 +8,8 @@ from parser_2gis.chrome.options import ChromeOptions
 from parser_2gis.chrome.remote import ChromeRemote
 from parser_2gis.chrome.exceptions import ChromeException
 from backend.schemas.schemas import CompanySearchRequest, Report, PlatformStats, CompanyCard, Review
+
+logger = logging.getLogger(__name__)
 
 
 class YandexParser:

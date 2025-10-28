@@ -1,10 +1,9 @@
-from fastapi import FastAPI, Request, Form, HTTPException, Depends
-from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
+from fastapi import FastAPI, Request, Form, HTTPException
+from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from typing import Dict, Any, Optional
+from typing import Dict, Any
 from uuid import uuid4
-import os
 import pathlib
 import asyncio
 import logging
@@ -14,7 +13,10 @@ from backend.services.task_queue import TaskQueue
 from backend.services.parser_service import ParserService
 from backend.schemas.schemas import CompanySearchRequest, Report
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
 logger = logging.getLogger(__name__)
 
 settings = Settings()
@@ -129,7 +131,7 @@ async def get_report_data(report_id: str):
                 }
             ]
         )
-    else:  # Ошибка
+    else:
         return Report(
             report_id=report_id,
             company_name=report_data.get("company_name", "Unknown"),
@@ -138,8 +140,10 @@ async def get_report_data(report_id: str):
         )
 
 async def task_worker():
+    logger.debug("--- TASK WORKER STARTED ---")
     while True:
-        task: CompanySearchRequest = await task_queue.get_task()
+        # Получаем задачу прямо из внутренней очереди
+        task = await task_queue._queue.get()
         report_id = task.report_id
 
         try:
@@ -199,12 +203,13 @@ async def task_worker():
             }
             logger.error(f"Ошибка при обработке задачи {report_id}: {e}", exc_info=True)
         finally:
-            task_queue.task_done()
+            task_queue._queue.task_done()
 
 @app.on_event("startup")
 async def startup_event():
+    logger.debug("--- STARTUP EVENT TRIGGERED ---")
     asyncio.create_task(task_worker())
-    logger.info("Рабочий процесс запущен.")
+    logger.debug("--- STARTUP EVENT COMPLETE ---")
 
 if __name__ == "__main__":
     import uvicorn
