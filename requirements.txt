@@ -1,4 +1,12 @@
-pychrome
-requests
-psutil
+fastapi
+uvicorn
 pydantic
+requests
+pychrome
+psutil
+pytest
+python-dotenv
+pydantic_settings
+pydantic[email]
+jinja2
+python-multipart

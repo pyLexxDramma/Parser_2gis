@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EgoScan - Company Search</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Введите данные компании</h1>
+        <form id="searchForm">
+            <div class="form-group">
+                <label for="company_name">Название компании:</label>
+                <input type="text" id="company_name" name="company_name" required>
+            </div>
+            <div class="form-group">
+                <label for="company_site">Сайт компании (необязательно):</label>
+                <input type="url" id="company_site" name="company_site">
+            </div>
+            <div class="form-group">
+                <label for="email">Ваш email для уведомлений:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <button type="submit">Поехали!</button>
+        </form>
+        <div id="message"></div>
+    </div>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

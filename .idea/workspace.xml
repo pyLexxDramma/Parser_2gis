@@ -4,13 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7aca2b6-f8c2-493e-9f87-009a9b0b8ad6" name="Changes" comment="Доработка ChromeRemote, расширение CompanyFinder с помощью wait_for_selector и усовершенствованного поиска, адаптация CLIRunner для интеграции поиска компаний">
-      <change afterPath="$PROJECT_DIR$/parser_2gis/chrome/browser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parser_2gis/chrome/dom.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parser_2gis/chrome/exceptions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parser_2gis/chrome/patches.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_chrome_launch.py" afterDir="false" />
+    <list default="true" id="d7aca2b6-f8c2-493e-9f87-009a9b0b8ad6" name="Changes" comment="Написание скрипта для проверки запуска chrome с использованием user_data и правильных аргументов для настройки ChromeOptions">
+      <change afterPath="$PROJECT_DIR$/backend/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/api/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/api/endpoints.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/core/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/core/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/schemas/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/schemas/schemas.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/services/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/services/notification_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/services/parser_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/services/report_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/services/task_queue.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/tasks/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/static/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/static/js/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/templates/report.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser_2gis/chrome/options.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/chrome/options.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser_2gis/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser_2gis/logger/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/parser_2gis/logger/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +83,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\netology_p120\Parser_2gis\frontend\templates" />
+      <recent name="E:\netology_p120\Parser_2gis\backend\services" />
       <recent name="E:\netology_p120\Parser_2gis\parser_2gis" />
       <recent name="E:\netology_p120\Parser_2gis\tests" />
     </key>
@@ -88,6 +107,7 @@
       <updated>1761467218529</updated>
       <workItem from="1761467219693" duration="22026000" />
       <workItem from="1761550316476" duration="2018000" />
+      <workItem from="1761640191037" duration="3405000" />
     </task>
     <task id="LOCAL-00001" summary="Адаптация CLI-приложения и runner для режима поиска компаний, добавлен каркас CompanyFinder">
       <option name="closed" value="true" />
@@ -137,7 +157,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761482644051</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Написание скрипта для проверки запуска chrome с использованием user_data и правильных аргументов для настройки ChromeOptions">
+      <option name="closed" value="true" />
+      <created>1761568024999</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1761568024999</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,6 +188,7 @@
     <MESSAGE value="рефакторинг: Полная реализация ChromeRemote с полным интерфейсом CDP и управлением контекстом" />
     <MESSAGE value="функция: Усовершенствование CompanyFinder с помощью улучшенных селекторов и ожиданий; адаптирован CLIRunner для использования результатов CompanyFinder" />
     <MESSAGE value="Доработка ChromeRemote, расширение CompanyFinder с помощью wait_for_selector и усовершенствованного поиска, адаптация CLIRunner для интеграции поиска компаний" />
-    <option name="LAST_COMMIT_MESSAGE" value="Доработка ChromeRemote, расширение CompanyFinder с помощью wait_for_selector и усовершенствованного поиска, адаптация CLIRunner для интеграции поиска компаний" />
+    <MESSAGE value="Написание скрипта для проверки запуска chrome с использованием user_data и правильных аргументов для настройки ChromeOptions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Написание скрипта для проверки запуска chrome с использованием user_data и правильных аргументов для настройки ChromeOptions" />
   </component>
 </project>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EgoScan - Report</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Отчет для компании: <span id="companyName"></span></h1>
+        <div id="reportStatus">Загрузка статуса...</div>
+
+        <div id="reportContent" style="display: none;">
+            <div id="yandexSection">
+                <h2>Яндекс.Карты</h2>
+                <p>Общий рейтинг: <span id="yandexTotalRating"></span></p>
+                <p>Всего отзывов: <span id="yandexTotalReviews"></span></p>
+                <p>Отвечено на: <span id="yandexAnsweredReviews"></span></p>
+                <p>Средняя скорость ответа: <span id="yandexAvgResponseTime"></span></p>
+                <p>Негативных отзывов: <span id="yandexNegative"></span></p>
+                <p>Позитивных отзывов: <span id="yandexPositive"></span></p>
+
+                <h3>Карточки</h3>
+                <ul id="yandexCardsList"></ul>
+            </div>
+
+            <div id="gisSection">
+                <h2>2ГИС</h2>
+                <p>Общий рейтинг: <span id="gisTotalRating"></span></p>
+                <p>Всего отзывов: <span id="gisTotalReviews"></span></p>
+                <p>Отвечено на: <span id="gisAnsweredReviews"></span></p>
+                <p>Средняя скорость ответа: <span id="gisAvgResponseTime"></span></p>
+                <p>Негативных отзывов: <span id="gisNegative"></span></p>
+                <p>Позитивных отзывов: <span id="gisPositive"></span></p>
+
+                <h3>Карточки</h3>
+                <ul id="gisCardsList"></ul>
+            </div>
+
+            <button onclick="downloadPdf('{{ report_id }}')">Скачать PDF</button>
+            <button onclick="shareLink('{{ report_id }}')">Поделиться ссылкой</button>
+        </div>
+        <div id="errorSection" style="display: none; color: red;"></div>
+    </div>
+
+    <script>
+        const reportId = "{{ report_id }}";
+        const reportContentDiv = document.getElementById('reportContent');
+        const reportStatusDiv = document.getElementById('reportStatus');
+        const errorSectionDiv = document.getElementById('errorSection');
+        const companyNameSpan = document.getElementById('companyName');
+
+        async function fetchReport() {
+            try {
+                const response = await fetch(`/api/report/${reportId}`);
+                const data = await response.json();
+
+                companyNameSpan.textContent = data.company_name;
+                reportStatusDiv.textContent = `Статус: ${data.status}`;
+
+                if (data.status === 'processing') {
+                    reportStatusDiv.style.color = 'blue';
+                    setTimeout(fetchReport, 5000);
+                } else if (data.status === 'completed') {
+                    reportStatusDiv.style.color = 'green';
+                    displayReport(data);
+                    reportContentDiv.style.display = 'block';
+                } else { // error
+                    reportStatusDiv.style.color = 'red';
+                    errorSectionDiv.textContent = `Ошибка: ${data.error_message}`;
+                    errorSectionDiv.style.display = 'block';
+                }
+            } catch (error) {
+                reportStatusDiv.textContent = `Ошибка загрузки отчета: ${error}`;
+                reportStatusDiv.style.color = 'red';
+                errorSectionDiv.style.display = 'block';
+            }
+        }
+
+        function displayReport(data) {
+            // --- Яндекс ---
+            document.getElementById('yandexTotalRating').textContent = data.yandex_stats?.total_rating ?? 'N/A';
+            document.getElementById('yandexTotalReviews').textContent = data.yandex_stats?.total_reviews ?? 'N/A';
+            document.getElementById('yandexAnsweredReviews').textContent = data.yandex_stats?.answered_reviews ?? 'N/A';
+            document.getElementById('yandexAvgResponseTime').textContent = formatResponseTime(data.yandex_stats?.avg_response_time_days, 'days');
+            document.getElementById('yandexNegative').textContent = data.yandex_stats?.negative_reviews_count ?? 'N/A';
+            document.getElementById('yandexPositive').textContent = data.yandex_stats?.positive_reviews_count ?? 'N/A';
+
+            const yandexCardsList = document.getElementById('yandexCardsList');
+            data.yandex_cards.forEach(card => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <strong>${card.name}</strong> - Рейтинг: ${card.rating ?? 'N/A'}, Отзывов: ${card.reviews_count}, Отвечено: ${card.answered_reviews}, Скорость ответа: ${formatResponseTime(card.response_time_days, 'days')}. <button onclick="showReviews('${card.name}', ${JSON.stringify(card.reviews)})">Отзывы</button>
+                `;
+                yandexCardsList.appendChild(li);
+            });
+
+            // --- 2ГИС ---
+            document.getElementById('gisTotalRating').textContent = data.gis_stats?.total_rating ?? 'N/A';
+            document.getElementById('gisTotalReviews').textContent = data.gis_stats?.total_reviews ?? 'N/A';
+            document.getElementById('gisAnsweredReviews').textContent = data.gis_stats?.answered_reviews ?? 'N/A';
+            document.getElementById('gisAvgResponseTime').textContent = formatResponseTime(data.gis_stats?.avg_response_time_months, 'months');
+            document.getElementById('gisNegative').textContent = data.gis_stats?.negative_reviews_count ?? 'N/A';
+            document.getElementById('gisPositive').textContent = data.gis_stats?.positive_reviews_count ?? 'N/A';
+
+            const gisCardsList = document.getElementById('gisCardsList');
+            data.gis_cards.forEach(card => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <strong>${card.name}</strong> - Рейтинг: ${card.rating ?? 'N/A'}, Отзывов: ${card.reviews_count}, Отвечено: ${card.answered_reviews}, Скорость ответа: ${formatResponseTime(card.response_time_months, 'months')}. <button onclick="showReviews('${card.name}', ${JSON.stringify(card.reviews)})">Отзывы</button>
+                `;
+                gisCardsList.appendChild(li);
+            });
+        }
+
+        function formatResponseTime(value, unit) {
+            if (value === null || value === undefined) return 'N/A';
+            if (unit === 'days') return `${value} ${value === 1 ? 'день' : (value >= 2 && value <= 4 ? 'дня' : 'дней')}`;
+            if (unit === 'months') return `${value} ${value === 1 ? 'месяц' : (value >= 2 && value <= 4 ? 'месяца' : 'месяцев')}`;
+            return `${value} ${unit}`;
+        }
+
+        function showReviews(cardName, reviews) {
+            let reviewHtml = `<h3>Отзывы для карточки "${cardName}"</h3>`;
+            if (reviews.length === 0) {
+                reviewHtml += "<p>Отзывов нет.</p>";
+            } else {
+                reviews.forEach(review => {
+                    reviewHtml += `
+                        <div class="review">
+                            <p><strong>Оценка:</strong> ${review.rating}</p>
+                            <p><strong>Текст:</strong> ${review.text}</p>
+                            <p><strong>Дата:</strong> ${review.date}</p>
+                            ${review.responded ? `
+                                <p><strong>Ответ:</strong> ${review.response_text}</p>
+                                <p><strong>Дата ответа:</strong> ${review.response_date}</p>
+                                <p><strong>Время ответа:</strong> ${review.response_time_str}</p>
+                            ` : ''}
+                        </div>
+                    `;
+                });
+            }
+            alert(reviewHtml);
+        }
+
+        function downloadPdf(reportId) {
+            window.open(`/report/${reportId}/pdf`, '_blank');
+        }
+
+        function shareLink(reportId) {
+            const url = `${window.location.origin}/report/${reportId}`;
+            navigator.clipboard.writeText(url).then(() => {
+                alert('Ссылка скопирована в буфер обмена!');
+            }).catch(err => {
+                console.error('Failed to copy URL: ', err);
+                prompt('Скопируйте эту ссылку вручную:', url);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchReport);
+    </script>
+</body>
+</html>
