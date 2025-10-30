@@ -1,6 +1,9 @@
 from fastapi import Depends
 from backend.services.task_queue import TaskQueue
 from backend.core.config import Settings
+import logging
+
+logger = logging.getLogger(__name__)
 
 try:
     settings_dep = Settings()

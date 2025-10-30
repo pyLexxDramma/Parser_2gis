@@ -13,8 +13,8 @@ router = APIRouter()
 
 class CompanySearchRequestApi(BaseModel):
     company_name: str
-   # company_site: str
-   # email: str
+    company_site: str
+    email: str
 
 
 @router.post("/process", status_code=202)

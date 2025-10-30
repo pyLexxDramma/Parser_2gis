@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import pathlib
@@ -28,6 +28,15 @@ TEMPLATES_DIR = BASE_DIR / "frontend" / "templates"
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 templates = Jinja2Templates(directory=TEMPLATES_DIR)
+
+@app.middleware("http")
+async def log_requests_middleware(request: Request, call_next):
+    logger.info(f"Incoming Request: {request.method} {request.url.path}")
+
+    response = await call_next(request)
+
+    logger.info(f"Outgoing Response: {response.status_code} {request.url.path}")
+    return response
 
 app.include_router(router, dependencies=[Depends(get_task_queue)])
 
