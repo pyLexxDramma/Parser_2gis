@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7aca2b6-f8c2-493e-9f87-009a9b0b8ad6" name="Changes" comment="Начальная настройка серверной и интерфейсной структуры. Добавлены приложения FastAPI, основные сервисы, схемы и файлы статических/шаблонных интерфейсов. Обновлено requirements.txt. Устранены ошибки первоначального импорта и настройки для успешного запуска приложения">
-      <change beforePath="$PROJECT_DIR$/.idea/Parser_2gis.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="d7aca2b6-f8c2-493e-9f87-009a9b0b8ad6" name="Changes" comment="Настройка логирования работы Worker’а и возникновения ошибок внутри Worker’а: на случай падения парсеров">
+      <change afterPath="$PROJECT_DIR$/backend/services/schemas/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/api/endpoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/endpoints.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/schemas/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dependencies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/schemas/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/schemas/schemas.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/services/parser_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/parser_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/services/task_queue.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/task_queue.py" afterDir="false" />
     </list>
@@ -51,19 +53,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.task_queue.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "E:/netology_p120/Parser_2gis",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\netology_p120\Parser_2gis\backend\services" />
@@ -93,6 +97,8 @@
       <workItem from="1761550316476" duration="2018000" />
       <workItem from="1761640191037" duration="6074000" />
       <workItem from="1761646780557" duration="4972000" />
+      <workItem from="1761719681859" duration="6262000" />
+      <workItem from="1761732699966" duration="23360000" />
     </task>
     <task id="LOCAL-00001" summary="Адаптация CLI-приложения и runner для режима поиска компаний, добавлен каркас CompanyFinder">
       <option name="closed" value="true" />
@@ -184,5 +190,8 @@
     <MESSAGE value="Написание скрипта для проверки запуска chrome с использованием user_data и правильных аргументов для настройки ChromeOptions" />
     <MESSAGE value="Начальная настройка серверной и интерфейсной структуры. Добавлены приложения FastAPI, основные сервисы, схемы и файлы статических/шаблонных интерфейсов. Обновлено requirements.txt. Устранены ошибки первоначального импорта и настройки для успешного запуска приложения" />
     <option name="LAST_COMMIT_MESSAGE" value="Начальная настройка серверной и интерфейсной структуры. Добавлены приложения FastAPI, основные сервисы, схемы и файлы статических/шаблонных интерфейсов. Обновлено requirements.txt. Устранены ошибки первоначального импорта и настройки для успешного запуска приложения" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Parser_2gis_Yandex$task_queue.coverage" NAME="task_queue Coverage Results" MODIFIED="1761749399400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/services" />
   </component>
 </project>
