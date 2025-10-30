@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7aca2b6-f8c2-493e-9f87-009a9b0b8ad6" name="Changes" comment="Настройка логирования">
+    <list default="true" id="d7aca2b6-f8c2-493e-9f87-009a9b0b8ad6" name="Changes" comment="Настройка логирования, добавлен Middleware">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api/endpoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/endpoints.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dependencies.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dependencies.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +92,7 @@
       <workItem from="1761640191037" duration="6074000" />
       <workItem from="1761646780557" duration="4972000" />
       <workItem from="1761719681859" duration="6262000" />
-      <workItem from="1761732699966" duration="25279000" />
+      <workItem from="1761732699966" duration="26067000" />
     </task>
     <task id="LOCAL-00001" summary="Адаптация CLI-приложения и runner для режима поиска компаний, добавлен каркас CompanyFinder">
       <option name="closed" value="true" />
@@ -168,7 +166,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761811669150</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Настройка логирования, добавлен Middleware">
+      <option name="closed" value="true" />
+      <created>1761816029174</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1761816029174</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,7 +200,8 @@
     <MESSAGE value="Написание скрипта для проверки запуска chrome с использованием user_data и правильных аргументов для настройки ChromeOptions" />
     <MESSAGE value="Начальная настройка серверной и интерфейсной структуры. Добавлены приложения FastAPI, основные сервисы, схемы и файлы статических/шаблонных интерфейсов. Обновлено requirements.txt. Устранены ошибки первоначального импорта и настройки для успешного запуска приложения" />
     <MESSAGE value="Настройка логирования" />
-    <option name="LAST_COMMIT_MESSAGE" value="Настройка логирования" />
+    <MESSAGE value="Настройка логирования, добавлен Middleware" />
+    <option name="LAST_COMMIT_MESSAGE" value="Настройка логирования, добавлен Middleware" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Parser_2gis_Yandex$task_queue.coverage" NAME="task_queue Coverage Results" MODIFIED="1761749399400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/services" />

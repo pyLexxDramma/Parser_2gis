@@ -31,13 +31,11 @@ templates = Jinja2Templates(directory=TEMPLATES_DIR)
 
 @app.middleware("http")
 async def log_requests_middleware(request: Request, call_next):
-    logger.info(f"Incoming Request: {request.method} {request.url.path}")
-
+    logger.debug(f"Incoming request: {request.method} {request.url}")
+    logger.debug(f"Headers: {request.headers}")
     response = await call_next(request)
-
-    logger.info(f"Outgoing Response: {response.status_code} {request.url.path}")
+    logger.debug(f"Response status: {response.status_code}")
     return response
-
 app.include_router(router, dependencies=[Depends(get_task_queue)])
 
 async def task_worker():
